@@ -7,13 +7,41 @@
 
 import SwiftUI
 
+func printHello() {
+    print("Hello")
+}
+
 struct ContentView: View {
-    var body: some View {
-        Button(action: {
-            print("Hello World!");
-        }) {
-            Text("Hello")
+    var appleImage: some View {
+        Button(action: printHello) {
+            Image("apple")
+                .resizable()
+                .frame(width: 50.0, height: 50.0)
         }
+    };
+    
+    var appleImageRow: some View {
+        HStack {
+            Spacer()
+            appleImage
+            Spacer()
+            appleImage
+            Spacer()
+            appleImage
+            Spacer()
+        }
+    }
+    
+    var body: some View {
+        VStack(alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/, spacing: 20, content: {
+            Spacer()
+            appleImageRow
+            Spacer()
+            appleImageRow
+            Spacer()
+            appleImageRow
+            Spacer()
+        })
     }
 }
 

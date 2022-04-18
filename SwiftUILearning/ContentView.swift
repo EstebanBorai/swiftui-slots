@@ -7,41 +7,49 @@
 
 import SwiftUI
 
-func printHello() {
-    print("Hello")
+var header: some View {
+    HStack(alignment: .center, spacing: 0, content: {
+        Text("Hardcore\nAvo Toast")
+            .fontWeight(.black)
+            .foregroundColor(.white)
+            .font(.headline)
+            .padding(.leading)
+            .frame(width: 200, height: 50, alignment: .leading)
+        Spacer()
+        Image("HeartHealth")
+            .padding(.trailing)
+            .frame(width: 20.0, height: 20.0, alignment: .trailing)
+    })
+    .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .top)
+    .background(Image("TopGradient"))
+}
+
+var footer: some View {
+    HStack(alignment: .center, spacing: 0, content: {
+        Text("Energize with this healthy and hearty breakfast")
+            .font(.footnote)
+            .fontWeight(.semibold)
+            .foregroundColor(.white)
+    })
+    .padding(.bottom)
+    .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .bottom)
+    .background(Image("BottomGradient"))
+}
+
+var appBackground: some View {
+    Image("Breakfast")
+        .resizable()
+        .ignoresSafeArea(.all)
 }
 
 struct ContentView: View {
-    var appleImage: some View {
-        Button(action: printHello) {
-            Image("apple")
-                .resizable()
-                .frame(width: 50.0, height: 50.0)
-        }
-    };
-    
-    var appleImageRow: some View {
-        HStack {
-            Spacer()
-            appleImage
-            Spacer()
-            appleImage
-            Spacer()
-            appleImage
-            Spacer()
-        }
-    }
-    
     var body: some View {
-        VStack(alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/, spacing: 20, content: {
+        VStack {
+            header
             Spacer()
-            appleImageRow
-            Spacer()
-            appleImageRow
-            Spacer()
-            appleImageRow
-            Spacer()
-        })
+            footer
+        }.background(Image("Breakfast"))
+        .frame(width: .infinity, height: .infinity, alignment: .center)
     }
 }
 

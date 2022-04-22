@@ -8,27 +8,11 @@
 import SwiftUI
 
 struct ContentView: View {
-    @State private var isHearted = false;
-    @State private var heartCount = 0;
-
     var body: some View {
-        VStack {
-            Button(action: {
-                self.isHearted.toggle()
-                
-                if self.isHearted {
-                    self.heartCount += 1;
-                }
-            }, label: {
-                if isHearted {
-                    Image(systemName: "heart.fill")
-                        .foregroundColor(.red)
-                } else {
-                    Image(systemName: "heart")
-                        .foregroundColor(.black)
-                }
-            })
-            Text(String.init(heartCount))
+        ScrollView {
+            Post(title: "Testing")
+            Post(title: "Testing Variables")
+            Post(title: "Beautiful Building")
         }
     }
 }

@@ -13,7 +13,6 @@
 		5BB03D6A280CFC130070A8BD /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5BB03D69280CFC130070A8BD /* Preview Assets.xcassets */; };
 		5BB03D75280CFC130070A8BD /* SwiftUILearningTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BB03D74280CFC130070A8BD /* SwiftUILearningTests.swift */; };
 		5BB03D80280CFC130070A8BD /* SwiftUILearningUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BB03D7F280CFC130070A8BD /* SwiftUILearningUITests.swift */; };
-		5BB105EF2812650400A8CBD5 /* Post.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BB105EE2812650400A8CBD5 /* Post.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -46,7 +45,6 @@
 		5BB03D7B280CFC130070A8BD /* SwiftUILearningUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SwiftUILearningUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		5BB03D7F280CFC130070A8BD /* SwiftUILearningUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftUILearningUITests.swift; sourceTree = "<group>"; };
 		5BB03D81280CFC130070A8BD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		5BB105EE2812650400A8CBD5 /* Post.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Post.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -102,7 +100,6 @@
 				5BB03D66280CFC130070A8BD /* Assets.xcassets */,
 				5BB03D6B280CFC130070A8BD /* Info.plist */,
 				5BB03D68280CFC130070A8BD /* Preview Content */,
-				5BB105EE2812650400A8CBD5 /* Post.swift */,
 			);
 			path = SwiftUILearning;
 			sourceTree = "<group>";
@@ -262,7 +259,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				5BB105EF2812650400A8CBD5 /* Post.swift in Sources */,
 				5BB03D65280CFC120070A8BD /* ContentView.swift in Sources */,
 				5BB03D63280CFC120070A8BD /* SwiftUILearningApp.swift in Sources */,
 			);

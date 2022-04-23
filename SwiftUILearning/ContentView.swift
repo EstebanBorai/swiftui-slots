@@ -34,25 +34,27 @@ struct CreditsCounter: View {
 }
 
 struct Cards: View {
+    var imageNames: [String] = [];
+
     var body: some View {
         HStack {
             Spacer()
 
-            Image("apple")
+            Image(imageNames[0])
                 .resizable()
                 .padding(.all, 20)
                 .aspectRatio(1, contentMode: .fit)
                 .background(Color.white.opacity(0.5))
                 .cornerRadius(20)
 
-            Image("apple")
+            Image(imageNames[1])
                 .resizable()
                 .padding(.all, 20)
                 .aspectRatio(1, contentMode: .fit)
                 .background(Color.white.opacity(0.5))
                 .cornerRadius(20)
 
-            Image("apple")
+            Image(imageNames[2])
                 .resizable()
                 .padding(.all, 20)
                 .aspectRatio(1, contentMode: .fit)
@@ -87,10 +89,39 @@ struct SpinButton: View {
 }
 
 struct ContentView: View {
+    private let pictures = ["apple", "bike", "coffee"];
+
+    @State private var activeImage = [0, 1, 2];
     @State private var credits: Int = 100;
+    @State private var isGameOver: Bool = false;
     
-    func addCredit() {
-        self.credits += 1;
+    func allEqual() -> Bool {
+        let firstItem = self.activeImage[0];
+
+        for imageState in activeImage {
+            if firstItem != imageState {
+                return false;
+            }
+        }
+        
+        return true;
+    }
+    
+    func spin() {
+        if self.credits == 0 {
+            self.isGameOver = true;
+            return;
+        }
+
+        for (index, _) in self.activeImage.enumerated() {
+            self.activeImage[index] = Int.random(in: 0...self.pictures.count - 1);
+        }
+        
+        if allEqual() {
+            self.credits += 5;
+        } else {
+            self.credits -= 5;
+        }
     }
 
     var body: some View {
@@ -104,16 +135,35 @@ struct ContentView: View {
                 .rotationEffect(Angle(degrees: 45))
                 .edgesIgnoringSafeArea(/*@START_MENU_TOKEN@*/.all/*@END_MENU_TOKEN@*/)
             
-            VStack {
-                Spacer()
-                Title()
-                Spacer()
-                CreditsCounter(credits: self.credits)
-                Spacer()
-                Cards()
-                Spacer()
-                SpinButton(onTap: self.addCredit)
-                Spacer()
+            if self.isGameOver {
+                VStack {
+                    Spacer()
+                    Title()
+                    Spacer()
+                    Text("Game Over!")
+                        .bold()
+                        .foregroundColor(.black)
+                        .scaledToFit()
+                    Text("You ran out of credits :(");
+                    Spacer()
+                    Spacer()
+                }
+            } else {
+                VStack {
+                    Spacer()
+                    Title()
+                    Spacer()
+                    CreditsCounter(credits: self.credits)
+                    Spacer()
+                    Cards(imageNames: [
+                            pictures[activeImage[0]],
+                            pictures[activeImage[1]],
+                            pictures[activeImage[2]],
+                    ])
+                    Spacer()
+                    SpinButton(onTap: self.spin)
+                    Spacer()
+                }
             }
         }
     }
